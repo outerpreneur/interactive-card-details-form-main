@@ -10,6 +10,7 @@
 --light-grayish-violet: hsl(270, 3%, 87%);
 --dark-grayish-violet: hsl(279, 6%, 55%);
 --very-dark-violet: hsl(278, 68%, 11%);
+--blue: hsl(249, 99%, 64%);
 
 --font-family: 'Space Grotesk', sans-serif; 
 }
@@ -25,13 +26,24 @@
 /* utilities */
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
-.container {
-    display: flex;
-    align-items: center;
+.error {
+    border: 2px solid var(--red-input-errors);
 }
+
+.error-message {
+    color: var(--red-input-errors);
+}
+
+.error-message::after {
+    content: "cant't be blank";
+    color: var(--Red);
+    margin-top: .2rem;
+}
+
+
 
 
 /* structure */
@@ -39,6 +51,15 @@
 body {
     min-height: 100vh;
 }
+
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Left Section */
 
 .left-section {
     width: 40%;
@@ -63,6 +84,7 @@ body {
 .front-card {
     position: relative;
     transform: translate(-100px);
+    box-shadow: -1px 58px 400px -84px rgba(0,0,0,0.75);
 
 }
 
@@ -93,8 +115,101 @@ body {
 
 .back-card {
     position: relative;
+    box-shadow: -1px 58px 400px -84px rgba(0,0,0,0.75);
 }
 
-.error {
-    
+#cvc {
+    position: absolute;
+    right: 3.5rem;
+    top: 7rem;
+    color: var(--white);
+}
+
+/* Right section */
+
+.right-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+form {
+    display: grid;
+    gap: 1em;
+    text-transform: uppercase;
+    width: 400px;
+}
+
+form label {
+    color: var(--very-dark-violet);
+    font-weight: 500;
+}
+
+form input {
+    border: 1px solid var(--light-grayish-violet);
+    height: 3.8em;
+    border-radius: 5px;
+    width: 100%;
+}
+
+form input:focus {
+    outline-color: var(--blue);
+}
+
+form input::placeholder {
+    padding: 0.6em;
+    font-size: 18px;
+    color: var(--dark-grayish-violet);
+}
+
+.grid-1, .grid-2, .grid-3, #card_date {
+    display: grid;
+    grid: 1fr;
+    gap: 0.5em;
+}
+
+button {
+    background-color: var(--very-dark-violet);
+    color: var(--white);
+    font-size: 18px;
+    padding: 1.2em 5em;
+    font-weight: 500;
+    border-radius: 10px;
+    margin-top: 2em;
+    cursor: pointer;
+}
+
+.card-information {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2em;
+}
+
+.two-inp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6em;
+}
+
+/* Thank you section */
+
+.thank-you {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.8em;
+}
+
+.thank-you h1 {
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.thank-you p {
+    font-size: 18px ;
+    color: var(--dark-grayish-violet);
+    font-weight: 500;
 }
