@@ -107,7 +107,6 @@ body {
     bottom: 1.7rem;
     left: 1.7rem;
     color:var(--white);
-    text-transform: uppercase;
     display: flex;
     justify-content: space-between;
     right: 3rem;
@@ -212,4 +211,70 @@ button {
     font-size: 18px ;
     color: var(--dark-grayish-violet);
     font-weight: 500;
+}
+/* Large Ipad version */
+@media screen and (max-width: 1200px) {
+
+    .back-card, .front-card, .back-card img, .front-card img {
+        width: 300px;
+    }
+    .card-logo {
+        width: 50px !important;
+    }
+    #number {
+        font-size: 1.1rem;
+    }
+    #cvc {
+        top: 43%;
+        right: 12%;
+    }
+}
+
+/* small ipad version */
+
+@media screen and (max-width:900px ) {
+    .back-card, .front-card, .back-card img, .front-card img {
+        width: 290px;
+    }
+    .cards {
+        left: 50%;
+        top: 50%;
+        gap: 2em;
+    }
+}
+
+/* mobile version */
+
+@media screen and (max-width:750px ) {
+    .container {
+        flex-direction: column;
+    }
+    .back-card, .front-card, .back-card img, .front-card img {
+        width: 280px;
+    }
+    .left-section {
+        width: 100%;
+        min-height: 30vh;
+        background-image: url(./images/bg-main-mobile.png);
+    }
+    .cards {
+        flex-direction: column-reverse;
+        left: 61%;
+        top: 60%;
+        gap: 0;
+    }
+    .back-card {
+        transform: translateY(70px);
+    }
+    .front-card {
+        z-index: 100;
+    }
+
+    .right-section {
+        margin-top: 6em;
+    }
+    .card-info span {
+        font-size: 14px;
+    }
+
 }
