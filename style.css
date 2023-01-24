@@ -220,6 +220,12 @@ form input::placeholder {
     color: var(--dark-grayish-violet);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .grid-1, .grid-2, .grid-3, #card_date {
     display: grid;
     grid: 1fr;

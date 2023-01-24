@@ -51,17 +51,18 @@ cardNameInput.addEventListener('keyup', (e) => {
 
 cardNumberInput.addEventListener('keyup', (e) => {
     let key= e.key
-    let keyNumbers = key.match(/^[0-9 ]*$/)
+    let keyNumbers = key.match(/^[0-9]*$/)
     if(cardNumberInput.value.length === 0) {
         cardNumberInput.parentElement.classList.add("error-message")
         cardNumberInput.classList.add('error')
         cardNumberInput.parentElement.classList.remove("error-minimum")
-    } else if (cardNumberInput.value.length != 16) {
+    } else if (cardNumberInput.value.length !=16 ) {
         cardNumberInput.parentElement.classList.add("error-minimum")
         cardNumberInput.parentElement.classList.remove('correct')
         cardNumberInput.classList.remove('correct')
-        cardNumberInput.classList.remove("error")  
-    }else if (cardNumberInput.value.length === 16) {
+        cardNumberInput.classList.remove("error") 
+        cardNumberOutput.innerHTML= cardNumberInput.value 
+    } else if (cardNumberInput.value.length === 16) {
         cardNumberInput.parentElement.classList.remove("error-minimum")
         cardNumberInput.classList.remove('error')
         cardNumberInput.parentElement.classList.remove("error-minimum")
@@ -69,13 +70,11 @@ cardNumberInput.addEventListener('keyup', (e) => {
         cardNumberInput.classList.add('correct')    
     } else if (keyNumbers) {
         cardNumberOutput.innerHTML= cardNumberInput.value
-        // cardNumberInput.parentElement.classList.remove("error-message")
-        // cardNumberInput.classList.remove("error")
-        // cardNumberInput.parentElement.classList.remove("error-letter")
         cardNumberInput.classList.remove("error")
     } else {
-        // cardNumberInput.parentElement.classList.add("error-letter")
-        // cardNumberInput.parentElement.classList.add("error")
+        cardNumberInput.parentElement.classList.add("error-letter")
+        cardNumberInput.parentElement.classList.add("error")
+    
     }
 })
 
