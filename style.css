@@ -29,8 +29,11 @@
     display: none !important;
 }
 
+/* error messages */
+
 .error {
     outline-color: var(--red-input-errors) !important;
+    color: var(--red-input-errors);
 }
 
 .error-message {
@@ -50,12 +53,49 @@
 }
 
 .error-number::after {
-    content: "Cant't be numbers";
+    content: "Wrong format, letters only";
     color: var(--Red);
     margin-top: .2rem;
     font-size: 13px;
     font-weight: 500;
 }
+
+.error-letter {
+    color: var(--red-input-errors);
+}
+
+.error-letter::after {
+    content: "Wrong format, numbers only";
+    color: var(--Red);
+    margin-top: .2rem;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.error-minimum {
+    color: var(--red-input-errors);
+}
+
+.error-minimum::after {
+    content: "Needs a mimimum of 16 characters";
+    color: var(--Red);
+    margin-top: .2rem;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.correct {
+    outline-color: green !important;
+}
+
+.correct::after {
+    content: "Correct";
+    color: green;
+    margin-top: .2rem;
+    font-size: 13px;
+    font-weight: 500;
+}
+
 
 
 /* structure */
@@ -163,9 +203,11 @@ form label {
 
 form input {
     border: 1px solid var(--light-grayish-violet);
-    height: 3.8em;
+    height: 2em;
     border-radius: 5px;
     width: 100%;
+    font-size: 18px;
+    padding: 1em;
 }
 
 form input:focus {

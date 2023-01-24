@@ -27,7 +27,7 @@ const thankYou = document.querySelector('.thank-you')
 const form = document.querySelector("form")
 
 // Live update in real time
-
+// Name input
 cardNameInput.addEventListener('keyup', (e) => {
     let key = e.key;
     let keyLetters = key.match(/^[A-za-z ]*$/);
@@ -42,15 +42,43 @@ cardNameInput.addEventListener('keyup', (e) => {
         cardNameInput.parentElement.classList.remove("error-number")
         cardNameInput.classList.remove("error")
     } else {
-        // cardNameInput.setAttribute("disabled", "")
         cardNameInput.parentElement.classList.add("error-number")
         cardNameInput.classList.add("error")
     }
 })
 
-cardNumberInput.addEventListener( 'keyup', (e) => {
-    cardNumberOutput.innerHTML= cardNumberInput.value
+// Number input
+
+cardNumberInput.addEventListener('keyup', (e) => {
+    let key= e.key
+    let keyNumbers = key.match(/^[0-9 ]*$/)
+    if(cardNumberInput.value.length === 0) {
+        cardNumberInput.parentElement.classList.add("error-message")
+        cardNumberInput.classList.add('error')
+        cardNumberInput.parentElement.classList.remove("error-minimum")
+    } else if (cardNumberInput.value.length != 16) {
+        cardNumberInput.parentElement.classList.add("error-minimum")
+        cardNumberInput.parentElement.classList.remove('correct')
+        cardNumberInput.classList.remove('correct')
+        cardNumberInput.classList.remove("error")  
+    }else if (cardNumberInput.value.length === 16) {
+        cardNumberInput.parentElement.classList.remove("error-minimum")
+        cardNumberInput.classList.remove('error')
+        cardNumberInput.parentElement.classList.remove("error-minimum")
+        cardNumberInput.parentElement.classList.add('correct')
+        cardNumberInput.classList.add('correct')    
+    } else if (keyNumbers) {
+        cardNumberOutput.innerHTML= cardNumberInput.value
+        // cardNumberInput.parentElement.classList.remove("error-message")
+        // cardNumberInput.classList.remove("error")
+        // cardNumberInput.parentElement.classList.remove("error-letter")
+        cardNumberInput.classList.remove("error")
+    } else {
+        // cardNumberInput.parentElement.classList.add("error-letter")
+        // cardNumberInput.parentElement.classList.add("error")
+    }
 })
+
 
 cardMonthInput.addEventListener( 'keyup', () => {
     cardMonthOutput.innerHTML= cardMonthInput.value
@@ -67,6 +95,8 @@ cardCvcInput.addEventListener( 'keyup', () => {
 
 // form
 
-form,addEventListener('submit', (event) => {
+form.addEventListener('submit', (event) => {
     e.preventDefault(event);
 })
+
+
