@@ -79,6 +79,7 @@ body {
     flex-direction: column;
     gap: 2rem;
     transform: translate(-50%,-50%);
+
 }
 
 .front-card {
@@ -250,8 +251,18 @@ button {
         flex-direction: column;
     }
     .back-card, .front-card, .back-card img, .front-card img {
-        width: 280px;
+        width: 260px;
     }
+
+    .card-logo {
+        width: 30px !important;
+    }
+
+    #number {
+        font-size: .9rem;
+        bottom: 3.5rem;
+    }
+
     .left-section {
         width: 100%;
         min-height: 30vh;
@@ -274,7 +285,14 @@ button {
         margin-top: 6em;
     }
     .card-info span {
-        font-size: 14px;
+        font-size: 12px;
+    }
+    .card-info {
+        right: 2rem;
+    }
+
+    form {
+        width: 90%;
     }
 
 }
