@@ -224,6 +224,7 @@ button {
     }
     #number {
         font-size: 1.1rem;
+        bottom: 4rem;
     }
     #cvc {
         top: 43%;
