@@ -28,11 +28,27 @@ const form = document.querySelector("form")
 
 // Live update in real time
 
-cardNameInput.addEventListener('keyup', () => {
-    cardNameOutput.innerHTML= cardNameInput.value
+cardNameInput.addEventListener('keyup', (e) => {
+    let key = e.key;
+    let keyLetters = key.match(/^[A-za-z ]*$/);
+    if (cardNameInput.value.length === 0) {
+        cardNameOutput.innerHTML = "Put that baby again"
+        cardNameInput.parentElement.classList.add("error-message")
+        cardNameInput.classList.add("error")
+    } else if (keyLetters) {
+        cardNameOutput.innerHTML= cardNameInput.value
+        cardNameInput.parentElement.classList.remove("error-message")
+        cardNameInput.classList.remove("error")
+        cardNameInput.parentElement.classList.remove("error-number")
+        cardNameInput.classList.remove("error")
+    } else {
+        // cardNameInput.setAttribute("disabled", "")
+        cardNameInput.parentElement.classList.add("error-number")
+        cardNameInput.classList.add("error")
+    }
 })
 
-cardNumberInput.addEventListener( 'keyup', () => {
+cardNumberInput.addEventListener( 'keyup', (e) => {
     cardNumberOutput.innerHTML= cardNumberInput.value
 })
 

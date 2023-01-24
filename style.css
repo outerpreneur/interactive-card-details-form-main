@@ -30,7 +30,7 @@
 }
 
 .error {
-    border: 2px solid var(--red-input-errors);
+    outline-color: var(--red-input-errors) !important;
 }
 
 .error-message {
@@ -38,12 +38,24 @@
 }
 
 .error-message::after {
-    content: "cant't be blank";
+    content: "Cant't be blank";
     color: var(--Red);
     margin-top: .2rem;
+    font-size: 13px;
+    font-weight: 500;
 }
 
+.error-number {
+    color: var(--red-input-errors);
+}
 
+.error-number::after {
+    content: "Cant't be numbers";
+    color: var(--Red);
+    margin-top: .2rem;
+    font-size: 13px;
+    font-weight: 500;
+}
 
 
 /* structure */
@@ -137,8 +149,11 @@ body {
 form {
     display: grid;
     gap: 1em;
-    text-transform: uppercase;
     width: 400px;
+}
+
+form label {
+    text-transform: uppercase;
 }
 
 form label {

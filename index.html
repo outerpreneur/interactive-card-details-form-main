@@ -59,8 +59,9 @@
 
           <div class="grid-2">
             <label>Card number</label>
-            <input type="number" minlength="16" maxlength="16" placeholder="e.g. 1234 5678 9123 0000" id="card_number"
-              required />
+            <input type="number"
+              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              minlength="16" maxlength="16" placeholder="e.g. 1234 5678 9123 0000" id="card_number" required />
           </div>
 
           <div class="card-information">
@@ -68,17 +69,23 @@
               <label for="card_date">Exp. Date (MM/YY)</label>
               <div class="two-inp">
                 <div>
-                  <input type="number" placeholder="MM" minlength="2" maxlength="2" id="card_month" required />
+                  <input type="number"
+                    oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    placeholder="MM" minlength="2" maxlength="2" id="card_month" required />
                 </div>
                 <div>
-                  <input type="number" minlength="2" maxlength="2" placeholder="YY" id="card_year" required />
+                  <input type="number"
+                    oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    minlength="2" maxlength="2" placeholder="YY" id="card_year" required />
                 </div>
               </div>
             </div>
 
             <div class="grid-3">
               <label for="card_cvc">CVC</label>
-              <input type="number" maxlength="3" placeholder="e.g. 123" id="card_cvc" required />
+              <input type="number"
+                oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                maxlength="3" placeholder="e.g. 123" id="card_cvc" required />
             </div>
           </div>
           <button id="submit-btn" type="submit">Confirm</button>
