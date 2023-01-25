@@ -45,7 +45,7 @@ cardNameInput.addEventListener('keyup', (e) => {
         cardNameInput.parentElement.classList.add("error-number")
         cardNameInput.classList.add("error")
     }
-})
+});
 
 // Number input
 
@@ -74,22 +74,100 @@ cardNumberInput.addEventListener('keyup', (e) => {
     } else {
         cardNumberInput.parentElement.classList.add("error-letter")
         cardNumberInput.parentElement.classList.add("error")
-    
+    }
+});
+// Card number formatter
+
+// cardNumberInput.addEventListener("input", (e) => {
+//     e.target.value = e.target.value = e.target.value
+//       .replace(/[^\dA-Z]/g, "")
+//       .replace(/(.{4})/g, "$1 ")
+//       .trim();
+//   });
+
+// card month input
+
+cardMonthInput.addEventListener( 'keyup', (e) => {
+    // let value = e.target.value
+    if( cardMonthInput.value > 12) {
+        cardMonthInput.parentElement.classList.add('month-over')
+        cardMonthInput.classList.add("error")
+        cardMonthInput.parentElement.classList.remove('correct')
+        cardMonthInput.classList.remove('correct')
+    } else if (cardMonthInput.value < 12) {
+        cardMonthInput.parentElement.classList.remove("error-message")
+        cardMonthInput.classList.remove("error")
+        cardMonthInput.parentElement.classList.remove('month-over')
+        cardMonthInput.parentElement.classList.add('correct')
+        cardMonthInput.classList.add('correct')
+    } else if (cardMonthInput.value.length === 0 ) {
+        cardMonthInput.parentElement.classList.add("error-message")
+        cardMonthInput.classList.add("error")
+    }
+    else {
+        cardMonthInput.parentElement.classList.remove("error-message")
+        cardMonthInput.classList.remove("error")
+        cardMonthInput.parentElement.classList.remove('month-over')  
+        cardMonthOutput.innerHTML= cardMonthInput.value
     }
 })
 
-
-cardMonthInput.addEventListener( 'keyup', () => {
-    cardMonthOutput.innerHTML= cardMonthInput.value
+cardYearInput.addEventListener( 'keyup', (e) => {
+    // let value = e.target.value
+    if(cardYearInput.value < 23 || cardYearInput.value > 27) {
+        cardYearInput.parentElement.classList.add('valid-year')
+        cardYearInput.classList.add('error')
+        cardYearInput.parentElement.classList.remove('correct')
+        cardYearInput.classList.remove('correct')
+    } else if(cardYearInput.value > 23 || cardYearInput.value < 27) {
+        cardYearInput.parentElement.classList.add('correct')
+        cardYearInput.classList.add('correct')
+        cardYearInput.parentElement.classList.remove('valid-year')
+        cardYearOutput.innerHTML= cardYearInput.value
+        cardYearInput.classList.remove('error')
+    } else if (cardYearInput.value.length === 0) {
+        cardYearInput.parentElement.classList.remove('valid-year')
+        cardYearInput.parentElement.classList.add("error-message")
+    } else {
+        cardYearInput.parentElement.classList.remove("error-message")
+        cardYearInput.parentElement.classList.remove('valid-year')
+        cardYearInput.classList.remove('error')
+        cardYearOutput.innerHTML= cardYearInput.value
+    }
 })
 
-cardYearInput.addEventListener( 'keyup', () => {
-    cardYearOutput.innerHTML= cardYearInput.value
+cardCvcInput.addEventListener( 'keyup', (e) => {
+    let value = e.target.value
+    let valueNumbers = value.match(/^[0-9 ]*$/)
+    if (value === "") {
+        cardCvcInput.parentElement.classList.add("error-message")
+        cardCvcInput.classList.add("error")
+    } else if ( value.length === 3) {
+        cardCvcOutput.innerHTML= cardCvcInput.value
+        cardCvcInput.classList.remove("error")
+        cardCvcInput.parentElement.classList.add('correct')
+        cardCvcInput.classList.add('correct')
+    } else {
+        cardCvcInput.parentElement.classList.remove("error-message")
+        cardCvcInput.parentElement.classList.remove('correct')
+        cardCvcInput.classList.remove('correct')
+        cardCvcInput.classList.remove("error")
+    }  
 })
 
-cardCvcInput.addEventListener( 'keyup', () => {
-    cardCvcOutput.innerHTML= cardCvcInput.value
+// Submit form
+
+submitBtn.addEventListener('submit', () => {
+    // if (cardNameInput.value.length === 0) {
+        // cardNameInput.parentElement.classList.add('error')
+        console.log("hello")
+    // } else {
+    //     form.style.display = "none"
+    //     thankYou.style.display = 'block'
+    // }
 })
+
+
 
 
 // form

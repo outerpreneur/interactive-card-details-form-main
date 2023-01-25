@@ -91,6 +91,30 @@
 .correct::after {
     content: "Correct";
     color: green;
+    margin-top: 0;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.month-over {
+    color: var(--red-input-errors);
+}
+
+.month-over::after {
+    content: "Can't be more than 12";
+    color: var(--Red);
+    margin-top: .2rem;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.valid-year {
+    color: var(--red-input-errors);
+}
+
+.valid-year::after {
+    content: "Wrong dates";
+    color: var(--Red);
     margin-top: .2rem;
     font-size: 13px;
     font-weight: 500;
@@ -189,14 +213,12 @@ body {
 form {
     display: grid;
     gap: 1em;
-    width: 400px;
+    width: 450px;
 }
 
 form label {
     text-transform: uppercase;
-}
-
-form label {
+    font-size: 15px;
     color: var(--very-dark-violet);
     font-weight: 500;
 }
@@ -204,10 +226,10 @@ form label {
 form input {
     border: 1px solid var(--light-grayish-violet);
     height: 2em;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 100%;
     font-size: 18px;
-    padding: 1em;
+    padding: 1.3em;
 }
 
 form input:focus {
@@ -215,7 +237,7 @@ form input:focus {
 }
 
 form input::placeholder {
-    padding: 0.6em;
+    padding: 0.1em;
     font-size: 18px;
     color: var(--dark-grayish-violet);
 }
