@@ -32,7 +32,7 @@ cardNameInput.addEventListener('keyup', (e) => {
     let key = e.key;
     let keyLetters = key.match(/^[A-za-z ]*$/);
     if (cardNameInput.value.length === 0) {
-        cardNameOutput.innerHTML = "Put that baby again"
+        cardNameOutput.innerHTML = "Put your name again"
         cardNameInput.parentElement.classList.add("error-message")
         cardNameInput.classList.add("error")
     } else if (keyLetters) {
