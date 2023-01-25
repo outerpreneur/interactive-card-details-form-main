@@ -23,11 +23,6 @@
   }
 
 
-/* utilities */
-
-.hidden {
-    display: none !important;
-}
 
 /* error messages */
 
@@ -85,7 +80,7 @@
 }
 
 .correct {
-    outline-color: green !important;
+    outline-color: green;
 }
 
 .correct::after {
@@ -280,7 +275,7 @@ button {
 /* Thank you section */
 
 .thank-you {
-    width: 400px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -297,6 +292,10 @@ button {
     font-size: 18px ;
     color: var(--dark-grayish-violet);
     font-weight: 500;
+}
+
+.thank-you button {
+    width: 100%;
 }
 /* Large Ipad version */
 @media screen and (max-width: 1200px) {
@@ -381,4 +380,8 @@ button {
         width: 90%;
     }
 
+}
+
+.hidden {
+    display: none;
 }

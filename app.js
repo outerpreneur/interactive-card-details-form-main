@@ -157,23 +157,27 @@ cardCvcInput.addEventListener( 'keyup', (e) => {
 
 // Submit form
 
-submitBtn.addEventListener('submit', () => {
-    // if (cardNameInput.value.length === 0) {
-        // cardNameInput.parentElement.classList.add('error')
-        console.log("hello")
-    // } else {
-    //     form.style.display = "none"
-    //     thankYou.style.display = 'block'
-    // }
+submitBtn.addEventListener('click', () => {
+    if (cardNameInput.value.length === 0) {
+        cardNameInput.classList.add('error')
+        submitBtn.parentElement.classList.add('error-message')
+    } else if (cardNumberInput.value.length === 0) {
+        cardNumberInput.classList.add('error')
+        submitBtn.parentElement.classList.add('error-message')
+    } else if (cardMonthInput.value.length === 0) {
+        cardMonthInput.classList.add('error')
+        submitBtn.parentElement.classList.add('error-message')
+    } else if (cardYearInput.value.length === 0) {
+        cardYearInput.classList.add('error')
+        submitBtn.parentElement.classList.add('error-message')
+    } else if (cardCvcInput.value.length === 0) {
+        cardCvcInput.classList.add('error')
+        submitBtn.parentElement.classList.add('error-message')
+    } else {
+    form.style.display = 'none'
+    thankYou.classList.remove("hidden")
+    }
 })
 
-
-
-
-// form
-
-form.addEventListener('submit', (event) => {
-    e.preventDefault(event);
-})
 
 
