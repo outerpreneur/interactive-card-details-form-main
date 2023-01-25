@@ -170,9 +170,9 @@ submitBtn.addEventListener('click', () => {
     } else if (cardYearInput.value.length === 0) {
         cardYearInput.classList.add('error')
         submitBtn.parentElement.classList.add('error-message')
-    } else if (cardCvcInput.value.length === 0) {
-        cardCvcInput.classList.add('error')
-        submitBtn.parentElement.classList.add('error-message')
+    // } else if (cardCvcInput.value.length === 0) {
+    //     cardCvcInput.classList.add('error')
+    //     submitBtn.parentElement.classList.add('error-message')
     } else {
     form.style.display = 'none'
     thankYou.classList.remove("hidden")
