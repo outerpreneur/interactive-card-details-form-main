@@ -56,6 +56,7 @@ cardNumberInput.addEventListener('keyup', (e) => {
         cardNumberInput.parentElement.classList.add("error-message")
         cardNumberInput.classList.add('error')
         cardNumberInput.parentElement.classList.remove("error-minimum")
+        cardNumberOutput.innerHTML= cardNumberInput.value 
     } else if (cardNumberInput.value.length !=16 ) {
         cardNumberInput.parentElement.classList.add("error-minimum")
         cardNumberInput.parentElement.classList.remove('correct')
@@ -71,6 +72,7 @@ cardNumberInput.addEventListener('keyup', (e) => {
     } else if (keyNumbers) {
         cardNumberOutput.innerHTML= cardNumberInput.value
         cardNumberInput.classList.remove("error")
+        cardNumberOutput.innerHTML= cardNumberInput.value 
     } else {
         cardNumberInput.parentElement.classList.add("error-letter")
         cardNumberInput.parentElement.classList.add("error")
@@ -94,15 +96,20 @@ cardMonthInput.addEventListener( 'keyup', (e) => {
         cardMonthInput.classList.add("error")
         cardMonthInput.parentElement.classList.remove('correct')
         cardMonthInput.classList.remove('correct')
-    } else if (cardMonthInput.value < 12) {
+        cardMonthOutput.innerHTML= cardMonthInput.value
+    } else if (cardMonthInput.value <= 12 && cardMonthInput.value.length === 2) {
         cardMonthInput.parentElement.classList.remove("error-message")
         cardMonthInput.classList.remove("error")
         cardMonthInput.parentElement.classList.remove('month-over')
         cardMonthInput.parentElement.classList.add('correct')
         cardMonthInput.classList.add('correct')
-    } else if (cardMonthInput.value.length === 0 ) {
+        cardMonthOutput.innerHTML= cardMonthInput.value
+    } else if (cardMonthInput.value.length <= 1  ) {
         cardMonthInput.parentElement.classList.add("error-message")
         cardMonthInput.classList.add("error")
+        cardMonthInput.parentElement.classList.remove('correct')
+        cardMonthInput.classList.remove('correct')
+        cardMonthOutput.innerHTML= cardMonthInput.value
     }
     else {
         cardMonthInput.parentElement.classList.remove("error-message")
@@ -142,6 +149,7 @@ cardCvcInput.addEventListener( 'keyup', (e) => {
     if (value === "") {
         cardCvcInput.parentElement.classList.add("error-message")
         cardCvcInput.classList.add("error")
+        cardCvcOutput.innerHTML= cardCvcInput.value
     } else if ( value.length === 3) {
         cardCvcOutput.innerHTML= cardCvcInput.value
         cardCvcInput.classList.remove("error")
@@ -152,6 +160,7 @@ cardCvcInput.addEventListener( 'keyup', (e) => {
         cardCvcInput.parentElement.classList.remove('correct')
         cardCvcInput.classList.remove('correct')
         cardCvcInput.classList.remove("error")
+        cardCvcOutput.innerHTML= cardCvcInput.value
     }  
 })
 
@@ -160,23 +169,43 @@ cardCvcInput.addEventListener( 'keyup', (e) => {
 submitBtn.addEventListener('click', (e) => {
     if (cardNameInput.value.length === 0) {
         cardNameInput.classList.add('error')
-        submitBtn.parentElement.classList.add('error-message')
-    } else if (cardNumberInput.value.length !== 16) {
-        cardNumberInput.classList.add('error')
-        submitBtn.parentElement.classList.add('error-message')
-    } else if (cardMonthInput.value.length === 0) {
-        cardMonthInput.classList.add('error')
-        submitBtn.parentElement.classList.add('error-message')
-    } else if (cardYearInput.value.length === 0) {
-        cardYearInput.classList.add('error')
-        submitBtn.parentElement.classList.add('error-message')
-    } else if (cardCvcInput.value.length !== 3) {
-        cardCvcInput.classList.add('error')
-        submitBtn.parentElement.classList.add('error-message')
+        cardNameInput.parentElement.classList.add('error-message')
     } else {
-    e.preventDefault();
-    form.style.display = 'none'
-    thankYou.classList.remove("hidden")
+        e.preventDefault();
+        form.style.display = 'none'
+        thankYou.classList.remove("hidden")
+    }
+    if (cardNumberInput.value.length !== 16) {
+        cardNumberInput.classList.add('error')
+        cardNumberInput.parentElement.classList.add('error-message')
+    } else {
+        e.preventDefault();
+        form.style.display = 'none'
+        thankYou.classList.remove("hidden")
+    }
+    if (cardMonthInput.value.length === 0) {
+        cardMonthInput.classList.add('error')
+        cardMonthInput.parentElement.classList.add('error-message')
+    } else {
+        e.preventDefault();
+        form.style.display = 'none'
+        thankYou.classList.remove("hidden")
+    } 
+    if (cardYearInput.value.length === 0) {
+        cardYearInput.classList.add('error')
+        cardYearInput.parentElement.classList.add('error-message')
+    } else {
+        e.preventDefault();
+        form.style.display = 'none'
+        thankYou.classList.remove("hidden")
+    } 
+    if (cardCvcInput.value.length !== 3 ) {
+        cardCvcInput.classList.add('error')
+        cardCvcInput.parentElement.classList.add('error-message')
+    } else {
+        e.preventDefault();
+        form.style.display = 'none'
+        thankYou.classList.remove("hidden")
     }
 })
 

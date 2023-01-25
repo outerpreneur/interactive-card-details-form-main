@@ -108,7 +108,7 @@
 }
 
 .valid-year::after {
-    content: "Wrong dates";
+    content: "Has to be more than 2023 & no more 2027";
     color: var(--Red);
     margin-top: .2rem;
     font-size: 13px;
