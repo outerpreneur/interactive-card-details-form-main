@@ -157,7 +157,7 @@ cardCvcInput.addEventListener( 'keyup', (e) => {
 
 // Submit form
 
-submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', (e) => {
     if (cardNameInput.value.length === 0) {
         cardNameInput.classList.add('error')
         submitBtn.parentElement.classList.add('error-message')
@@ -170,10 +170,11 @@ submitBtn.addEventListener('click', () => {
     } else if (cardYearInput.value.length === 0) {
         cardYearInput.classList.add('error')
         submitBtn.parentElement.classList.add('error-message')
-    // } else if (cardCvcInput.value.length === 0) {
-    //     cardCvcInput.classList.add('error')
-    //     submitBtn.parentElement.classList.add('error-message')
+    } else if (cardCvcInput.value.length === 0) {
+        cardCvcInput.classList.add('error')
+        submitBtn.parentElement.classList.add('error-message')
     } else {
+    e.preventDefault();
     form.style.display = 'none'
     thankYou.classList.remove("hidden")
     }
