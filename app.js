@@ -161,7 +161,7 @@ submitBtn.addEventListener('click', (e) => {
     if (cardNameInput.value.length === 0) {
         cardNameInput.classList.add('error')
         submitBtn.parentElement.classList.add('error-message')
-    } else if (cardNumberInput.value.length === 0) {
+    } else if (cardNumberInput.value.length !== 16) {
         cardNumberInput.classList.add('error')
         submitBtn.parentElement.classList.add('error-message')
     } else if (cardMonthInput.value.length === 0) {
@@ -170,7 +170,7 @@ submitBtn.addEventListener('click', (e) => {
     } else if (cardYearInput.value.length === 0) {
         cardYearInput.classList.add('error')
         submitBtn.parentElement.classList.add('error-message')
-    } else if (cardCvcInput.value.length === 0) {
+    } else if (cardCvcInput.value.length !== 3) {
         cardCvcInput.classList.add('error')
         submitBtn.parentElement.classList.add('error-message')
     } else {
