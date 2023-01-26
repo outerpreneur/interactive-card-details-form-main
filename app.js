@@ -36,7 +36,7 @@ cardNameInput.addEventListener('keyup', (e) => {
         cardNameInput.parentElement.classList.add("error-message")
         cardNameInput.classList.add("error")
     } else if (keyLetters) {
-        cardNameOutput.innerHTML= cardNameInput.value
+        cardNameOutput.innerHTML= cardNameInput.value.toUpperCase()
         cardNameInput.parentElement.classList.remove("error-message")
         cardNameInput.classList.remove("error")
         cardNameInput.parentElement.classList.remove("error-number")
